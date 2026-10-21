@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up - BiteHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .signup-page {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        .signup-box {
+            width: 100%;
+            max-width: 450px;
+            background: #171717;
+            border: 1px solid #292929;
+            border-radius: 18px;
+            padding: 40px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+        }
+
+        .signup-logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .signup-logo h1 {
+            color: #ff4b1f;
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .signup-logo p {
+            color: #aaa;
+        }
+
+        .signup-box h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ddd;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 13px 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background: #222;
+            color: white;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #ff4b1f;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: #222;
+            color: white;
+        }
+
+        .signup-submit {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #ff4b1f;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        .signup-submit:hover {
+            background: #e63e16;
+        }
+
+        .signup-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .login-text {
+            text-align: center;
+            margin-top: 22px;
+            color: #aaa;
+        }
+
+        .login-text a {
+            color: #ff4b1f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-home {
+            text-align: center;
+            margin-top: 18px;
+        }
+
+        .back-home a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .back-home a:hover {
+            color: #ff4b1f;
+        }
+
+        .location-note {
+            text-align: center;
+            color: #777;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .message {
+            display: none;
+            margin-bottom: 18px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .message.error {
+            display: block;
+            background: #351818;
+            color: #ff9d9d;
+            border: 1px solid #6b2a2a;
+        }
+
+        .message.success {
+            display: block;
+            background: #17351f;
+            color: #9ff0b4;
+            border: 1px solid #2f7440;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <a href="index.html">
+                Bite<span>Hub</span>
+            </a>
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="menu.html">Menu</a>
+            </li>
+
+            <li>
+                <a href="cart.html">
+                    Cart 🛒
+                    <span id="cart-count">0</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <section class="signup-page">
+
+        <div class="signup-box">
+
+            <div class="signup-logo">
+
+                <h1>BiteHub</h1>
+
+                <p>Good Food. Brighter Days!</p>
+
+            </div>
+
+
+            <h2>Create Your Account 🍔</h2>
+
+
+            <div id="message" class="message"></div>
+
+
+            <form id="signupForm" novalidate>
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Create a password"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm your password"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="area">
+                        Delivery Area 📍
+                    </label>
+
+                    <select id="area">
+
+                        <option value="">
+                            Select your Karachi area
+                        </option>
+
+                        <option value="Malir">Malir</option>
+                        <option value="Model Colony">Model Colony</option>
+                        <option value="Gulshan-e-Iqbal">Gulshan-e-Iqbal</option>
+                        <option value="Gulistan-e-Johar">Gulistan-e-Johar</option>
+                        <option value="PECHS">PECHS</option>
+                        <option value="DHA">DHA</option>
+                        <option value="Clifton">Clifton</option>
+                        <option value="North Nazimabad">North Nazimabad</option>
+                        <option value="Nazimabad">Nazimabad</option>
+                        <option value="Federal B Area">Federal B Area</option>
+                        <option value="Korangi">Korangi</option>
+                        <option value="Landhi">Landhi</option>
+                        <option value="Shah Faisal Colony">Shah Faisal Colony</option>
+                        <option value="Saddar">Saddar</option>
+                        <option value="Bahadurabad">Bahadurabad</option>
+                        <option value="Tariq Road">Tariq Road</option>
+
+                    </select>
+
+                    <div class="location-note">
+                        📍 Delivery currently available in Karachi
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="signup-submit"
+                    id="signupButton"
+                    onclick="createAccount()">
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+
+            <p class="login-text">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </p>
+
+
+            <div class="back-home">
+
+                <a href="index.html">
+                    ← Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>
+            © 2026 BiteHub. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="../java/script.js"></script>
+
+
+    <script>
+
+        async function createAccount() {
+
+            const name =
+                document.getElementById("name").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            const confirmPassword =
+                document.getElementById("confirmPassword").value;
+
+            const area =
+                document.getElementById("area").value;
+
+            const button =
+                document.getElementById("signupButton");
+
+            const message =
+                document.getElementById("message");
+
+
+            // Clear old message
+            message.className = "message";
+            message.textContent = "";
+
+
+            // Check fields
+            if (
+                name === "" ||
+                email === "" ||
+                password === "" ||
+                confirmPassword === "" ||
+                area === ""
+            ) {
+
+                message.className =
+                    "message error";
+
+                message.textContent =
+                    "Please fill all fields.";
+
+                return;
+            }
+
+
+            // Check email
+            if (!email.includes("@")) {
+
+                message.className =
+                    "message error";
+
+                message.textContent =
+                    "Please enter a valid email.";
+
+                return;
+            }
+
+
+            // Check password
+            if (password.length < 6) {
+
+                message.className =
+                    "message error";
+
+                message.textContent =
+                    "Password must be at least 6 characters.";
+
+                return;
+            }
+
+
+            // Check confirm password
+            if (password !== confirmPassword) {
+
+                message.className =
+                    "message error";
+
+                message.textContent =
+                    "Passwords do not match.";
+
+                return;
+            }
+
+
+            button.disabled = true;
+
+            button.textContent =
+                "Creating Account...";
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "http://localhost:5000/api/auth/signup",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                name: name,
+                                email: email,
+                                password: password,
+                                area: area
+                            })
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    message.className =
+                        "message error";
+
+                    message.textContent =
+                        data.message ||
+                        "Account could not be created.";
+
+                    button.disabled = false;
+
+                    button.textContent =
+                        "Create Account";
+
+                    return;
+                }
+
+
+                localStorage.setItem(
+                    "bitehubUserName",
+                    data.user.name
+                );
+
+                localStorage.setItem(
+                    "bitehubUserEmail",
+                    data.user.email
+                );
+
+                localStorage.setItem(
+                    "bitehubArea",
+                    data.user.area
+                );
+
+
+                message.className =
+                    "message success";
+
+                message.textContent =
+                    "Account created successfully! 🎉";
+
+
+                setTimeout(function() {
+
+                    window.location.href =
+                        "login.html";
+
+                }, 1200);
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                message.className =
+                    "message error";
+
+                message.textContent =
+                    "Cannot connect to server. Make sure npm start is running.";
+
+                button.disabled = false;
+
+                button.textContent =
+                    "Create Account";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

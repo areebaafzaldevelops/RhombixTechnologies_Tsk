@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - BiteHub</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+
+        .login-page {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 430px;
+            background: #171717;
+            border: 1px solid #292929;
+            border-radius: 18px;
+            padding: 40px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+        }
+
+        .login-logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .login-logo h1 {
+            color: #ff4b1f;
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .login-logo p {
+            color: #aaa;
+        }
+
+        .login-box h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ddd;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 13px 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background: #222;
+            color: white;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #ff4b1f;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: #222;
+            color: white;
+        }
+
+        .login-submit {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #ff4b1f;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        .login-submit:hover {
+            background: #e63e16;
+        }
+
+        .login-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .signup-text {
+            text-align: center;
+            margin-top: 22px;
+            color: #aaa;
+        }
+
+        .signup-text a {
+            color: #ff4b1f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-home {
+            text-align: center;
+            margin-top: 18px;
+        }
+
+        .back-home a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .back-home a:hover {
+            color: #ff4b1f;
+        }
+
+        .location-note {
+            text-align: center;
+            color: #777;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <a href="index.html">
+                Bite<span>Hub</span>
+            </a>
+
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="menu.html">Menu</a>
+            </li>
+
+            <li>
+
+                <a href="cart.html">
+
+                    Cart 🛒
+
+                    <span id="cart-count">0</span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- LOGIN PAGE -->
+
+    <section class="login-page">
+
+        <div class="login-box">
+
+
+            <div class="login-logo">
+
+                <h1>BiteHub</h1>
+
+                <p>
+                    Good Food. Brighter Days!
+                </p>
+
+            </div>
+
+
+            <h2>
+                Welcome Back 👋
+            </h2>
+
+
+
+            <form id="loginForm">
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- AREA -->
+
+                <div class="form-group">
+
+                    <label for="area">
+                        Delivery Area 📍
+                    </label>
+
+
+                    <select id="area" required>
+
+                        <option value="">
+                            Select your Karachi area
+                        </option>
+
+                        <option value="Malir">
+                            Malir
+                        </option>
+
+                        <option value="Model Colony">
+                            Model Colony
+                        </option>
+
+                        <option value="Gulshan-e-Iqbal">
+                            Gulshan-e-Iqbal
+                        </option>
+
+                        <option value="Gulistan-e-Johar">
+                            Gulistan-e-Johar
+                        </option>
+
+                        <option value="PECHS">
+                            PECHS
+                        </option>
+
+                        <option value="DHA">
+                            DHA
+                        </option>
+
+                        <option value="Clifton">
+                            Clifton
+                        </option>
+
+                        <option value="North Nazimabad">
+                            North Nazimabad
+                        </option>
+
+                        <option value="Nazimabad">
+                            Nazimabad
+                        </option>
+
+                        <option value="Federal B Area">
+                            Federal B Area
+                        </option>
+
+                        <option value="Korangi">
+                            Korangi
+                        </option>
+
+                        <option value="Landhi">
+                            Landhi
+                        </option>
+
+                        <option value="Shah Faisal Colony">
+                            Shah Faisal Colony
+                        </option>
+
+                        <option value="Saddar">
+                            Saddar
+                        </option>
+
+                        <option value="Bahadurabad">
+                            Bahadurabad
+                        </option>
+
+                        <option value="Tariq Road">
+                            Tariq Road
+                        </option>
+
+                    </select>
+
+
+                    <div class="location-note">
+
+                        📍 Delivery currently available in Karachi
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="login-submit"
+                    id="loginButton"
+                >
+
+                    Login
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- SIGN UP -->
+
+            <p class="signup-text">
+
+                Don't have an account?
+
+                <a href="signup.html">
+                    Sign Up
+                </a>
+
+            </p>
+
+
+
+            <!-- BACK HOME -->
+
+            <div class="back-home">
+
+                <a href="index.html">
+                    ← Back to Home
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 BiteHub. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- MAIN JAVASCRIPT -->
+
+    <script src="../java/script.js"></script>
+
+
+
+    <!-- LOGIN JAVASCRIPT -->
+
+    <script>
+
+        document
+            .getElementById("loginForm")
+            .addEventListener("submit", async function (event) {
+
+                event.preventDefault();
+
+
+                const email =
+                    document.getElementById("email").value.trim();
+
+
+                const password =
+                    document.getElementById("password").value;
+
+
+                const area =
+                    document.getElementById("area").value;
+
+
+                const loginButton =
+                    document.getElementById("loginButton");
+
+
+
+                // Check fields
+
+                if (
+                    email === "" ||
+                    password === "" ||
+                    area === ""
+                ) {
+
+                    alert("Please complete all fields.");
+
+                    return;
+
+                }
+
+
+
+                // Disable button
+
+                loginButton.disabled = true;
+
+                loginButton.textContent = "Logging in...";
+
+
+
+                try {
+
+
+                    // Send login request to backend
+
+                    const response = await fetch(
+                        "http://localhost:5000/api/auth/login",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+
+                            body: JSON.stringify({
+
+                                email: email,
+
+                                password: password,
+
+                                area: area
+
+                            })
+                        }
+                    );
+
+
+
+                    const data =
+                        await response.json();
+
+
+
+                    // Login failed
+
+                    if (!response.ok || !data.success) {
+
+                        alert(
+                            data.message ||
+                            "Incorrect email or password."
+                        );
+
+                        loginButton.disabled = false;
+
+                        loginButton.textContent = "Login";
+
+                        return;
+
+                    }
+
+
+
+                    // Save login information
+
+                    localStorage.setItem(
+                        "bitehubLoggedIn",
+                        "true"
+                    );
+
+
+                    localStorage.setItem(
+                        "bitehubUserEmail",
+                        data.user.email
+                    );
+
+
+                    localStorage.setItem(
+                        "bitehubUserName",
+                        data.user.name
+                    );
+
+
+                    localStorage.setItem(
+                        "bitehubArea",
+                        data.user.area
+                    );
+
+
+
+                    // Success message
+
+                    alert(
+                        "Login successful! Welcome " +
+                        data.user.name +
+                        " 👋"
+                    );
+
+
+
+                    // Go to home
+
+                    window.location.href =
+                        "index.html";
+
+
+                } catch (error) {
+
+
+                    console.error(
+                        "Login Error:",
+                        error
+                    );
+
+
+                    alert(
+                        "Cannot connect to server. " +
+                        "Make sure server.js is running."
+                    );
+
+
+                    loginButton.disabled = false;
+
+                    loginButton.textContent = "Login";
+
+                }
+
+            });
+
+    </script>
+
+
+</body>
+
+</html>

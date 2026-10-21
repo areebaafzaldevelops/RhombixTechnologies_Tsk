@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiteHub | Menu</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* MENU PAGE */
+
+        .menu-page {
+            padding: 70px 7%;
+            background: #0d0d0d;
+            min-height: 100vh;
+        }
+
+        .menu-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+        }
+
+        .menu-heading h1 {
+            font-size: 55px;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .menu-heading h1 span {
+            color: #ff4b1f;
+        }
+
+        .menu-heading p {
+            color: #999;
+            font-size: 15px;
+        }
+
+        .menu-search {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            background: #191919;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .menu-search input {
+            width: 100%;
+            padding: 16px 20px;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            font-size: 14px;
+        }
+
+        .menu-search input::placeholder {
+            color: #777;
+        }
+
+        .search-button {
+            padding: 16px 22px;
+            border: none;
+            background: #ff4b1f;
+            color: white;
+            font-size: 18px;
+        }
+
+        .menu-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 45px;
+        }
+
+        .filter-btn {
+            padding: 11px 20px;
+            border-radius: 25px;
+            border: 1px solid #333;
+            background: #171717;
+            color: #bbb;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #ff4b1f;
+            color: white;
+            border-color: #ff4b1f;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .menu-card {
+            background: #191919;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(255,75,31,0.45);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.35);
+        }
+
+        .menu-image {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: 0.5s;
+        }
+
+        .menu-card:hover .menu-image img {
+            transform: scale(1.08);
+        }
+
+        .menu-info {
+            padding: 20px;
+        }
+
+        .menu-category {
+            color: #ff4b1f;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .menu-info h3 {
+            font-size: 18px;
+            margin: 8px 0;
+        }
+
+        .menu-description {
+            color: #888;
+            font-size: 12px;
+            min-height: 38px;
+            margin-bottom: 15px;
+        }
+
+        .menu-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .menu-price {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .menu-add {
+            border: none;
+            background: #ff4b1f;
+            color: white;
+            padding: 10px 13px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .menu-add:hover {
+            background: #ff6a35;
+            transform: translateY(-2px);
+        }
+
+        .no-results {
+            display: none;
+            text-align: center;
+            color: #888;
+            padding: 50px;
+            font-size: 18px;
+        }
+
+        @media (max-width: 1000px) {
+            .menu-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 750px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .menu-heading h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .menu-page {
+                padding: 50px 5%;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-heading h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            Bite<span>Hub</span>
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="menu.html" class="active">
+                Menu
+            </a>
+
+            <a href="index.html#popular">
+                Popular
+            </a>
+
+            <a href="index.html#offers">
+                Deals
+            </a>
+
+            <a href="index.html#why-us">
+                About
+            </a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <a href="menu.html" class="search-link">
+                🔍
+            </a>
+
+            <a href="cart.html" class="cart-link">
+                🛒
+                <span id="cart-count">0</span>
+            </a>
+
+            <a href="#" class="login-btn">
+                Login
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- MENU -->
+
+    <main class="menu-page">
+
+        <div class="menu-heading">
+
+            <p class="small-title">
+                EXPLORE OUR MENU
+            </p>
+
+            <h1>
+                Choose Your
+                <span>Favorite</span>
+            </h1>
+
+            <p>
+                Freshly prepared burgers, pizzas, wings,
+                fries, rolls, drinks and delicious sauces.
+            </p>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="menu-search">
+
+            <input
+                type="text"
+                id="menuSearch"
+                placeholder="Search for burgers, pizza, fries..."
+            >
+
+            <button
+                class="search-button"
+                type="button">
+
+                🔍
+
+            </button>
+
+        </div>
+
+
+        <!-- FILTERS -->
+
+        <div class="menu-filters">
+
+            <button
+                class="filter-btn active"
+                data-category="all">
+                All
+            </button>
+
+            <button
+                class="filter-btn"
+                data-category="burger">
+                🍔 Burgers
+            </button>
+
+            <button
+                class="filter-btn"
+                data-category="pizza">
+                🍕 Pizzas
+            </button>
+
+            <button
+                class="filter-btn"
+                data-category="fries">
+                🍟 Fries
+            </button>
+
+            <button
+                class="filter-btn"
+                data-category="wings">
+                🍗 Wings
+            </button>
+
+            <button
+                class="filter-btn"
+                data-category="roll">
+                🌯 Rolls
+            </button>
+
+            <button
+                class="filter-btn"
+                data-category="drink">
+                🥤 Drinks
+            </button>
+
+            <button
+                class="filter-btn"
+                data-category="sauce">
+                🥫 Sauces
+            </button>
+
+        </div>
+
+
+        <!-- FOOD GRID -->
+
+        <div
+            class="menu-grid"
+            id="menuGrid">
+        </div>
+
+
+        <div
+            class="no-results"
+            id="noResults">
+
+            😕 No food found. Try another search.
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <div class="footer-logo">
+                    Bite<span>Hub</span>
+                </div>
+
+                <p>
+                    Good Food. Delivered Fast.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="menu.html">
+                    Menu
+                </a>
+
+                <a href="index.html#offers">
+                    Deals
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Categories
+                </h3>
+
+                <a href="menu.html">
+                    Burgers
+                </a>
+
+                <a href="menu.html">
+                    Pizza
+                </a>
+
+                <a href="menu.html">
+                    Wings
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    📍 Karachi, Pakistan
+                </p>
+
+                <p>
+                    📞 +92 300 1234567
+                </p>
+
+                <p>
+                    ✉️ hello@bitehub.com
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 BiteHub. All Rights Reserved.
+            </p>
+
+            <p>
+                Made with ❤️ for food lovers.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="../java/script.js"></script>
+
+    <script>
+
+        const menuItems = [
+
+            /* BURGERS - 8 */
+
+            {
+                name: "Classic Beef Burger",
+                category: "burger",
+                image: "burger_classic.jpg",
+                folder: "Burgers",
+                price: 650,
+                desc: "Juicy beef patty with fresh vegetables and sauce."
+            },
+
+            {
+                name: "Ultimate Cheese Burger",
+                category: "burger",
+                image: "burger_cheese.jpg",
+                folder: "Burgers",
+                price: 750,
+                desc: "Soft bun, juicy patty and melted cheese."
+            },
+
+            {
+                name: "Double Beef Burger",
+                category: "burger",
+                image: "burger_double.jpg",
+                folder: "Burgers",
+                price: 850,
+                desc: "Double beef patties packed with rich flavor."
+            },
+
+            {
+                name: "Spicy Chicken Burger",
+                category: "burger",
+                image: "burger_spicy.jpg",
+                folder: "Burgers",
+                price: 720,
+                desc: "Crispy spicy chicken with fresh toppings."
+            },
+
+            {
+                name: "BBQ Beef Burger",
+                category: "burger",
+                image: "burger_bbq.jpg",
+                folder: "Burgers",
+                price: 800,
+                desc: "Juicy beef burger with smoky BBQ flavor."
+            },
+
+            {
+                name: "Zinger Burger",
+                category: "burger",
+                image: "burger_zinger.jpg",
+                folder: "Burgers",
+                price: 780,
+                desc: "Crispy zinger chicken with fresh salad."
+            },
+
+            {
+                name: "Mushroom Burger",
+                category: "burger",
+                image: "burger_mushroom.jpg",
+                folder: "Burgers",
+                price: 820,
+                desc: "Juicy burger topped with creamy mushrooms."
+            },
+
+            {
+                name: "Chicken Burger",
+                category: "burger",
+                image: "burger_chicken.jpg",
+                folder: "Burgers",
+                price: 700,
+                desc: "Tender chicken patty with fresh toppings."
+            },
+
+
+            /* PIZZAS - 8 */
+
+            {
+                name: "Pepperoni Pizza",
+                category: "pizza",
+                image: "pizza_pepperoni.jpg",
+                folder: "Pizzas",
+                price: 1250,
+                desc: "Classic pizza loaded with pepperoni and cheese."
+            },
+
+            {
+                name: "Margherita Pizza",
+                category: "pizza",
+                image: "pizza_margherita.jpg",
+                folder: "Pizzas",
+                price: 1050,
+                desc: "Tomato, mozzarella and fresh herbs."
+            },
+
+            {
+                name: "Chicken Fajita Pizza",
+                category: "pizza",
+                image: "pizza_chicken_fajita.jpg",
+                folder: "Pizzas",
+                price: 1300,
+                desc: "Tender chicken, peppers and creamy cheese."
+            },
+
+            {
+                name: "BBQ Chicken Pizza",
+                category: "pizza",
+                image: "pizza_bbq_chicken.jpg",
+                folder: "Pizzas",
+                price: 1350,
+                desc: "Smoky BBQ chicken with melted cheese."
+            },
+
+            {
+                name: "Veggie Pizza",
+                category: "pizza",
+                image: "pizza_veggie.jpg",
+                folder: "Pizzas",
+                price: 1150,
+                desc: "Fresh vegetables with mozzarella cheese."
+            },
+
+            {
+                name: "Cheese Pizza",
+                category: "pizza",
+                image: "pizza_cheese.jpg",
+                folder: "Pizzas",
+                price: 1100,
+                desc: "Extra cheesy pizza for cheese lovers."
+            },
+
+            {
+                name: "Malavari Pizza",
+                category: "pizza",
+                image: "pizza_malavari.jpg",
+                folder: "Pizzas",
+                price: 1250,
+                desc: "Rich Malavari-style pizza with delicious toppings."
+            },
+
+            {
+                name: "Thin Crust Pizza",
+                category: "pizza",
+                image: "pizza_thin_crust.jpg",
+                folder: "Pizzas",
+                price: 1150,
+                desc: "Light and crispy thin crust pizza."
+            },
+
+
+            /* FRIES - 6 */
+
+            {
+                name: "Classic Fries",
+                category: "fries",
+                image: "fries_classic.jpg",
+                folder: "Fries",
+                price: 250,
+                desc: "Crispy golden fries with a perfect crunch."
+            },
+
+            {
+                name: "Loaded Cheese Fries",
+                category: "fries",
+                image: "fries_loaded.jpg",
+                folder: "Fries",
+                price: 450,
+                desc: "Crispy fries loaded with creamy cheese."
+            },
+
+            {
+                name: "Cheesy Fries",
+                category: "fries",
+                image: "fries_cheese.jpg",
+                folder: "Fries",
+                price: 400,
+                desc: "Golden fries covered with melted cheese."
+            },
+
+            {
+                name: "Curly Fries",
+                category: "fries",
+                image: "fries_curly.jpg",
+                folder: "Fries",
+                price: 350,
+                desc: "Crispy curly fries with tasty seasoning."
+            },
+
+            {
+                name: "Spicy Fries",
+                category: "fries",
+                image: "fries_spicy.jpg",
+                folder: "Fries",
+                price: 320,
+                desc: "Crispy fries with a spicy kick."
+            },
+
+            {
+                name: "Masala Fries",
+                category: "fries",
+                image: "fries_masala.jpg",
+                folder: "Fries",
+                price: 300,
+                desc: "Golden fries tossed in special masala."
+            },
+
+
+            /* WINGS - 6 */
+
+            {
+                name: "BBQ Chicken Wings",
+                category: "wings",
+                image: "wings_bbq.jpg",
+                folder: "Wings",
+                price: 720,
+                desc: "Tender wings coated in smoky BBQ sauce."
+            },
+
+            {
+                name: "Classic Chicken Wings",
+                category: "wings",
+                image: "wings_classic.jpg",
+                folder: "Wings",
+                price: 650,
+                desc: "Crispy chicken wings with delicious seasoning."
+            },
+
+            {
+                name: "Honey Garlic Wings",
+                category: "wings",
+                image: "wings_honey_garlic.jpg",
+                folder: "Wings",
+                price: 750,
+                desc: "Sweet honey glaze with rich garlic flavor."
+            },
+
+            {
+                name: "Hot Wings",
+                category: "wings",
+                image: "wings_hot.jpg",
+                folder: "Wings",
+                price: 700,
+                desc: "Hot and crispy wings with spicy sauce."
+            },
+
+            {
+                name: "Lemon Pepper Wings",
+                category: "wings",
+                image: "wings_lemon_pepper.jpg",
+                folder: "Wings",
+                price: 730,
+                desc: "Crispy wings with lemon pepper seasoning."
+            },
+
+            {
+                name: "Spicy Wings",
+                category: "wings",
+                image: "wings_spicy.jpg",
+                folder: "Wings",
+                price: 760,
+                desc: "Spicy crispy wings packed with flavor."
+            },
+
+
+            /* ROLLS - 6 */
+
+            {
+                name: "Special Chicken Roll",
+                category: "roll",
+                image: "roll_chicken.jpg",
+                folder: "Rolls",
+                price: 400,
+                desc: "Tender chicken wrapped with fresh ingredients."
+            },
+
+            {
+                name: "Beef Roll",
+                category: "roll",
+                image: "roll_beef.jpg",
+                folder: "Rolls",
+                price: 450,
+                desc: "Juicy beef filling wrapped in a soft roll."
+            },
+
+            {
+                name: "Cheese Roll",
+                category: "roll",
+                image: "roll_cheese.jpg",
+                folder: "Rolls",
+                price: 480,
+                desc: "Delicious roll filled with chicken and cheese."
+            },
+
+            {
+                name: "Spicy Roll",
+                category: "roll",
+                image: "roll_spicy.jpg",
+                folder: "Rolls",
+                price: 450,
+                desc: "Spicy chicken roll with fresh vegetables."
+            },
+
+            {
+                name: "Tikka Roll",
+                category: "roll",
+                image: "roll_tikka.jpg",
+                folder: "Rolls",
+                price: 500,
+                desc: "Smoky tikka chicken wrapped in a soft roll."
+            },
+
+            {
+                name: "Paratha Roll",
+                category: "roll",
+                image: "roll_paratha.jpg",
+                folder: "Rolls",
+                price: 520,
+                desc: "Flavorful filling wrapped in crispy paratha."
+            },
+
+
+            /* DRINKS - 8 */
+
+            {
+                name: "Coca Cola",
+                category: "drink",
+                image: "drink_coke.jpg",
+                folder: "Drinks",
+                price: 150,
+                desc: "Chilled refreshing Coca Cola."
+            },
+
+            {
+                name: "Pepsi",
+                category: "drink",
+                image: "drink_pepsi.jpg",
+                folder: "Drinks",
+                price: 150,
+                desc: "Refreshing chilled Pepsi."
+            },
+
+            {
+                name: "Chocolate Milkshake",
+                category: "drink",
+                image: "drink_milkshake.jpg",
+                folder: "Drinks",
+                price: 450,
+                desc: "Thick creamy chocolate milkshake."
+            },
+
+            {
+                name: "Mountain Dew",
+                category: "drink",
+                image: "drink_mountain_dew.jpg",
+                folder: "Drinks",
+                price: 180,
+                desc: "Chilled and refreshing Mountain Dew."
+            },
+
+            {
+                name: "Fanta",
+                category: "drink",
+                image: "drink_fanta.jpg",
+                folder: "Drinks",
+                price: 150,
+                desc: "Sweet and refreshing orange drink."
+            },
+
+            {
+                name: "Lassi",
+                category: "drink",
+                image: "drink_lassi.jpg",
+                folder: "Drinks",
+                price: 220,
+                desc: "Cool and creamy traditional lassi."
+            },
+
+            {
+                name: "Iced Tea",
+                category: "drink",
+                image: "drink_ice_tea.jpg",
+                folder: "Drinks",
+                price: 250,
+                desc: "Cold and refreshing iced tea."
+            },
+
+            {
+                name: "Sprite",
+                category: "drink",
+                image: "drink_sprite.jpg",
+                folder: "Drinks",
+                price: 150,
+                desc: "Chilled lemon-lime soft drink."
+            },
+
+
+            /* SAUCES - 8 */
+
+            {
+                name: "Cheese Sauce",
+                category: "sauce",
+                image: "sauce_cheese.jpg",
+                folder: "Sauces",
+                price: 120,
+                desc: "Creamy cheese sauce for your favorite food."
+            },
+
+            {
+                name: "BBQ Sauce",
+                category: "sauce",
+                image: "sauce_bbq.jpg",
+                folder: "Sauces",
+                price: 100,
+                desc: "Smoky and flavorful BBQ dipping sauce."
+            },
+
+            {
+                name: "Chilli Sauce",
+                category: "sauce",
+                image: "sauce_chilli.jpg",
+                folder: "Sauces",
+                price: 100,
+                desc: "Spicy chilli sauce with bold flavor."
+            },
+
+            {
+                name: "Garlic Sauce",
+                category: "sauce",
+                image: "sauce_garlic.jpg",
+                folder: "Sauces",
+                price: 120,
+                desc: "Creamy garlic sauce with rich taste."
+            },
+
+            {
+                name: "Ketchup",
+                category: "sauce",
+                image: "sauce_ketchup.jpg",
+                folder: "Sauces",
+                price: 80,
+                desc: "Classic tomato ketchup."
+            },
+
+            {
+                name: "Mayo Sauce",
+                category: "sauce",
+                image: "sauce_mayo.jpg",
+                folder: "Sauces",
+                price: 100,
+                desc: "Smooth and creamy mayonnaise sauce."
+            },
+
+            {
+                name: "Ranch Sauce",
+                category: "sauce",
+                image: "sauce_ranch.jpg",
+                folder: "Sauces",
+                price: 120,
+                desc: "Creamy ranch dipping sauce."
+            },
+
+            {
+                name: "Spicy Sauce",
+                category: "sauce",
+                image: "sauce_spicy.jpg",
+                folder: "Sauces",
+                price: 100,
+                desc: "Hot and spicy signature sauce."
+            }
+
+        ];
+
+
+        /* CREATE MENU CARDS */
+
+        const menuGrid = document.getElementById("menuGrid");
+
+        menuGrid.innerHTML = menuItems.map(item => `
+
+            <article
+                class="menu-card"
+                data-category="${item.category}"
+                data-name="${item.name.toLowerCase()}">
+
+                <div class="menu-image">
+
+                    <img
+                        src="../BiteHub_images/${item.folder}/${item.image}"
+                        alt="${item.name}"
+                        loading="lazy">
+
+                </div>
+
+
+                <div class="menu-info">
+
+                    <span class="menu-category">
+                        ${item.category.toUpperCase()}
+                    </span>
+
+                    <h3>
+                        ${item.name}
+                    </h3>
+
+                    <p class="menu-description">
+                        ${item.desc}
+                    </p>
+
+
+                    <div class="menu-bottom">
+
+                        <strong class="menu-price">
+                            Rs. ${item.price.toLocaleString()}
+                        </strong>
+
+                        <button
+                            class="menu-add"
+                            onclick="addToCart('${item.name}', ${item.price})">
+
+                            🛒 Add
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        `).join("");
+
+
+        /* FILTER */
+
+        const filterButtons =
+            document.querySelectorAll(".filter-btn");
+
+        const searchInput =
+            document.getElementById("menuSearch");
+
+        const noResults =
+            document.getElementById("noResults");
+
+        let currentCategory = "all";
+
+
+        function filterMenu() {
+
+            const searchText =
+                searchInput.value
+                .toLowerCase()
+                .trim();
+
+            const cards =
+                document.querySelectorAll(".menu-card");
+
+            let visibleCards = 0;
+
+
+            cards.forEach(function(card) {
+
+                const category =
+                    card.getAttribute("data-category");
+
+                const name =
+                    card.getAttribute("data-name");
+
+
+                const categoryMatch =
+                    currentCategory === "all" ||
+                    category === currentCategory;
+
+
+                const searchMatch =
+                    name.includes(searchText);
+
+
+                if (categoryMatch && searchMatch) {
+
+                    card.style.display = "";
+
+                    visibleCards++;
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+
+            if (visibleCards === 0) {
+
+                noResults.style.display = "block";
+
+            } else {
+
+                noResults.style.display = "none";
+
+            }
+
+        }
+
+
+        filterButtons.forEach(function(button) {
+
+            button.addEventListener("click", function() {
+
+                filterButtons.forEach(function(btn) {
+
+                    btn.classList.remove("active");
+
+                });
+
+                button.classList.add("active");
+
+                currentCategory =
+                    button.getAttribute("data-category");
+
+                filterMenu();
+
+            });
+
+        });
+
+
+        searchInput.addEventListener(
+            "input",
+            filterMenu
+        );
+
+
+        filterMenu();
+
+    </script>
+
+</body>
+
+</html>
